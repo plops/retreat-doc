@@ -1,4 +1,4 @@
-\documentclass[portrait,draft]{baposter}
+\documentclass[portrait,final]{baposter}
 %\documentclass[a4shrink,portrait,final]{baposter}
 % Usa a4shrink for an a4 sized paper.
 
@@ -81,7 +81,7 @@
     background=plain,
     linewidth=2pt}
   {eyecatch} 
-  {Getting more with less: sectioning methods and angular
+  {Getting more with less: sectioning methods and \\ angular
     control in a widefield microscope} 
   {Martin Kielhorn, Daniel Appelt, Susan Cox, Rainer Heintzmann} {
     \includegraphics[height=5em]{logo}
@@ -89,9 +89,10 @@
   \headerbox{Improving sectioning with the apotome}
   {name=daniel,column=0,span=3,row=0}{
     {}
-    \emph{Introduction}
-    One method to obtain optical sectioned data is “structured
-    illumination microscopy” (SIM), as implemented in commercial
+\begin{multicols}{3}
+    {\bf Introduction}
+    One method to obtain optical sectioned data is ``structured
+    illumination microscopy'' (SIM), as implemented in commercial
     devices like the Zeiss ApoTome or the Qioptiq Optigrid. In this
     procedure, a grating is inserted in the illumination path of a
     conventional fluorescence microscope and projected into sample
@@ -100,76 +101,116 @@
     out-of-focus light. As a result, contrast and resolution in
     z-direction are improved (Fig.3).
 
-    \emph{The principle} Fig.4 shows the effect of the grating on the
+    {\bf The principle} Fig.4 shows the effect of the grating on the
     detected fluorophore intensity. Depending on their z-position the
     moving of the grating will lead to an intensity modulation. This
     fact is essential to computationally remove out-of-focus light.
 
-    \emph{SIM reconstruction} Different algorithms can be used to
+    {\bf SIM reconstruction} Different algorithms can be used to
     remove out-of-focus light. A very simple one is explained in
     Fig.5.
 
-
-    Figure 1. The grating is inserted at the field diaphragm in the
-    illumination path of a conventional fluorescence microscope and
-    projected onto the sample using an incoherent light source.
-
-    Figure 2. Shown are the three raw images, each with a different
-    grating position. The same grid line is marked with a red bar in
-    each image. After the first image is taken, the grating is moved
-    linearly by 1/3 of the grating period length to capture the second
-    image, and another 1/3 to capture the third image. Specimen: Adult
-    rat cardiomyocytes, stained with monoclonal mouse antibodies
-    against the titin epitope T12 and secondary Cy2-conjugated anti
-    mouse immunoglobulin antibodies.
-
-    Figure 3. Shown are two images of adult rat cardiomyocytes stained
-    with monoclonal mouse antibodies against the titin epitope T12 and
-    secondary Cy2-conjugated anti mouse immunoglobulin
-    antibodies. Left: widefield, Right: SIM reconstruction.
-
-    Figure 4. Simulation of a x-z cross section through sample space
-    showing the three raw images taken at different grating positions
-    and the effect on the detected intensity of the fluorophores I and
-    II. The moving of the grating leads to an intensity modulation for
-    fluorophore I in but not for fluorophore II.
-
-
-    Figure 5. Max-Min - Algorithm for the situation shown in
-    Fig. 4. Every pixel value consists of modulated in-focus
-    information (II1, II2, II3) and unmodulated out-of-focus
-    information (III). The lowest of the three values that were taken
-    for each pixel Imin is substracted from the highest of the three
-    pixel values Imax. The final image I contains exclusively in-focus
-    information. The unmodulated out-of-focus information III has been
-    removed.
+    \begin{minipage}[h]{7.5cm}
+      \begin{center}
+      \includegraphics[width=4cm]{../../daniel/sketch.png}
+      \end{center}
+      {\smaller Figure 1. The grating is inserted at the field
+        diaphragm in the illumination path of a conventional
+        fluorescence microscope and projected onto the sample using an
+        incoherent light source.}
+    \end{minipage}
+    
+    \begin{minipage}[h]{7.5cm}
+      \includegraphics[width=7.5cm]{../../daniel/grating-img.png}
+      {\smaller Figure 2. Shown are the three raw images, each with a
+        different grating position. The same grid line is marked with
+        a red bar in each image. After the first image is taken, the
+        grating is moved linearly by $1/3$ of the grating period length
+        to capture the second image, and another $1/3$ to capture the
+        third image. Specimen: Adult rat cardiomyocytes, stained with
+        monoclonal mouse antibodies against the titin epitope T12 and
+        secondary Cy2-conjugated anti mouse immunoglobulin
+        antibodies.}
+    \end{minipage}
+    \begin{minipage}[h]{7.5cm}
+      \medskip
+      \begin{center}
+        \includegraphics[width=6cm]{../../daniel/reconstruct_2.png}
+      \end{center}
+      {\smaller Figure 3. Shown are two images of adult rat
+        cardiomyocytes stained with monoclonal mouse antibodies against
+        the titin epitope T12 and secondary Cy2-conjugated anti mouse
+        immunoglobulin antibodies. Left: widefield, Right: SIM
+        reconstruction.}
+    \end{minipage}
+    
+    \begin{minipage}[h]{7.5cm}
+      \vspace{-3mm}
+      \begin{center}
+        \includegraphics[width=7.5cm]{../../daniel/explain.png}
+      \end{center}
+      {\smaller Figure 4. Simulation of a x-z cross section through
+        sample space showing the three raw images taken at different
+        grating positions and the effect on the detected intensity of
+        the fluorophores I and II. The moving of the grating leads to an
+        intensity modulation for fluorophore I in but not for
+        fluorophore II.}
+    \end{minipage}
+    \begin{minipage}[h]{7.5cm}
+        \medskip
+        \begin{center}
+          \includegraphics[width=5cm]{../../daniel/screen-table.png}
+        \end{center}
+        {\smaller Figure 5. Max-Min - Algorithm for the situation shown in
+          Fig. 4. Every pixel value consists of modulated in-focus
+          information (II1, II2, II3) and unmodulated out-of-focus
+          information (III). The lowest of the three values that were
+          taken for each pixel Imin is substracted from the highest of the
+          three pixel values Imax. The final image I contains exclusively
+          in-focus information. The unmodulated out-of-focus information
+          III has been removed.}
+      \end{minipage}
+    \end{multicols}
   }
-%   \headerbox{Sectioning methods}{name=susan,column=0,span=3,below=daniel}{ 
-%     {}
-%     \emph[Sectioning methods} Distinguish between in-focus and out of
-%   focus light using a grating projected onto the sample with a spatial
-%   light modulator in the image plane.
+  \headerbox{Sectioning methods}
+  {name=susan,column=0,span=3,below=daniel}{
+    {}
+\begin{multicols}{3}
+   Distinguish between in-focus and out of
+   focus light using a grating projected onto the sample with a spatial
+   light modulator in the image plane.
   
-%   1) Apotome    3 x
+   \begin{minipage}[h]{7.5cm}
+     \medskip
+     \begin{center}
+       \includegraphics[width=7.5cm]{../../susan/section.png}
+     \end{center}
+     {\smaller Figure 6. }
+   \end{minipage}
+   
+   1 Apotome    3 x
+ 
+   2 HiLo    
+
+   3 Adapted HiLo   2x
+
+   Adapted HiLo method has smallest light dose to create a sectioned
+   image and was therefore selected.
+
+   Controlled light exposure
+   1 Initial short exposure images taken, sectioned image reconstructed
+   2 Create mask to block very bright, very dark and out-of-focus areas.
+   3 Take long exposure images with grating and mask
+   4 Reconstruct final sectioned image using all  information
   
-%   2) HiLo    
-
-%   3) Adapted HiLo   2x
-
-%   Adapted HiLo method has smallest light dose to create a sectioned
-%   image and was therefore selected.
-
-%   Controlled light exposure
-%   1) Initial short exposure images taken, sectioned image reconstructed
-%   2) Create mask to block very bright, very dark and out-of-focus areas.
-%   3) Take long exposure images with grating and mask
-%   4) Reconstruct final sectioned image using all  information
-  
-%   Leads to factor of 9 improvement in bleaching of bead sample, with
-%   same signal-to-noise in both images in medium intensity areas.}
+   Leads to factor of 9 improvement in bleaching of bead sample, with
+   same signal-to-noise in both images in medium intensity areas.
+\end{multicols}
+  }
 \headerbox{Spatio-angular illumination microscopy}
-{name=ich,column=0,span=3,below=daniel}{
+{name=ich,column=0,span=3,below=susan}{
   {}
+\begin{multicols}{3}
   In some biological specimen it is possible to exploit a sparse
   fluorophore concentration. In our modified wide field microscope we
   can shape the light distribution of the excitation light in the
@@ -183,61 +224,71 @@
 
   In order to use of the light shaping to our advantage it is
   necessary to account for the fluorophore concentration in the
-  specimen. We represent the specimen (c. elegans embryo) as a
-  sufficiently accurate model (each nucleus is represented as a
-  sphere).  By raytracing it is then possible to find "empty" regions
-  in the back focal plane. Limiting the illumination to these regions
-  will excite one nucleus in the focal plane and protect all the
-  nuclei from exposure.
+  specimen. Therefor we represent the specimen (c. elegans embryo) as
+  a sufficiently accurate model (each nucleus is represented as a
+  sphere).  By raytracing it is then possible to find ``unobstructed''
+  paths from the back focal plane through the back focal plane and the
+  rest of the embryo. Limiting the illumination to these regions will
+  excite one nucleus in the focal plane and protect all the nuclei
+  from exposure.
 
-  Figure *** 1 middle and right *** shows a model of an immersion
-  objective and the path of excitation rays from the back focal plane
-  towards the sample. The sample is a plane of spheres with one sphere
-  moved down. The excitation rays fill the biggest possible circle in
-  the back focal plane, so that they illuminate the single sphere
-  without crossing the other spheres. In Figure *** 1 left *** the the
+
+  \includegraphics[width=7.5cm]{../../ich/2a.png}
+  \emph{Raytracing model of a c.~elegans embryo.}
+ 
+
+  The Figure above shows a model of an immersion objective and the
+  path of excitation rays from the back focal plane towards the
+  sample. The model of the specimen was constructed from a confocal
+  stack of a living embryo with H2B-tagged histones. The excitation
+  rays fill the biggest possible circle in the back focal plane, so
+  that they illuminate a nucleus in the periphery of the embryo
+  without crossing the other spheres. In the next Figure the the
   average intersection length of the rays with the out-of-focus
-  spheres is plotted. A circular window with relative radius r
+  spheres is plotted. A circular window with relative radius $r$
   (compared to back focal plane radius) is scanned over the back focal
-  plane. In black regions the rays don't hit any out-of-focus
+  plane. In black regions the rays don't intersect any out-of-focus
   spheres. In order to find an optimal illumination shape the window
-  radius is increased until the value in the minimum starts to
-  increase.
-
-  Figure *** 2 *** displays the same plot for a nucleus in the
-  periphery of a c. elegans embryo.
-
-  Figure *** 1 ***
-
-  Raytracing model of a test sample containing an out-of-focus plane
-  of spheres and one target sphere below. The circular shapes on the
-  left depict an estimate of out-of-focus exposure for different
-  window sizes in the back focal plane.
-
-
-  Figure *** 2 ***
-
-  Raytracing model of a c. elegans embryo where a nucleus on its
-  periphery is illuminated.
+  radius is incremented until the minimum looses contrast.
+  
+  \includegraphics[width=7.5cm]{../../ich/2b.png}
+  \emph{The circular shapes depict an estimate of out-of-focus
+    exposure for different window sizes in the back focal plane. These
+    values were obtained by tracing rays through the sphere model of
+    the embryo.}
+  
+\end{multicols}
   }
-  \headerbox{--}{name=ref,column=0,span=3,below=ich}{
-    {} \tiny \hspace{1em}
-    \emph{References:}
+  \headerbox{Literature}{name=ref,column=0,span=1,above=bottom}{
+    {} 
+    \smaller
+    \vspace{-0.4em}
+     \bibliographystyle{ieee}
+     \renewcommand{\section}[2]{\vskip 0.05em}
+     \begin{thebibliography}{1}\itemsep=-0.01em
+       \setlength{\baselineskip}{0.4em}
+     \bibitem{2004huisken}
+       J.~Huisken, et al.. 
+       \newblock Optical sectioning deep inside living embryos by
+       selective plane illumination microscopy
+       \newblock In {\em Science, 305, 1007-1009 (2004)}
+     \bibitem{2007hoebe}
+       R.~A.~Hoebe, et al..
+       \newblock Controlled light-exposure microscopy reduces
+       photobleaching and phototoxicity in fluorescence live-cell
+       imaging
+       \newblock In {\em Nat Biotech, 25, 249-253 (2007)}
+     \end{thebibliography}}
+  \headerbox{Acknowledgements}{name=ack,column=1,span=2,above=bottom}{
+    {} \smaller     
+    We thank Spencer Shorte, Christophe Machu, Jean-Yves Tinevez
+    (Institut Pasteur, Paris, France), Vincent Galy (Uni Pierre et
+    Marie Curie, Paris, France), Erhard Ipp (In-Vision, Vienna,
+    Austria), Joel Seligson (KLA Tencor, Migdal Ha'emek, Israel) and
+    Joerg Heber (Fraunhofer IPMS, Dresden, Germany) for helpful
+    discussions.
 
-    [1] J. Huisken, et al., “Optical sectioning deep inside living
-    embryos by selective plane illumination microscopy,” Science, 305,
-    1007-1009 (2004)
-
-    [2] R. A. Hoebe, et al., “Controlled light-exposure microscopy
-    reduces photobleaching and phototoxicity in fluorescence live-cell
-    imaging,” Nat Biotech, 25, 249-253 (2007).
-
-    \emph{Acknowledgements} We thank Spencer Shorte, Christophe Machu,
-    Jean-Yves Tinevez (Institut Pasteur, Paris, France), Vincent Galy
-    (Uni Pierre et Marie Curie, Paris, France), Erhard Ipp (In-Vision,
-    Vienna, Austria), Joel Seligson (KLA Tencor, Migdal Ha’emek,
-    Israel) and Joerg Heber (Fraunhofer IPMS, Dresden, Germany) for
-    helpful discussions.  S. Cox and M. Kielhorn are funded by the EU
-    FP7. D. Appelt is funded by the MRC.}
+    S. Cox and M. Kielhorn are funded by the EU FP7. D. Appelt is
+    funded by the MRC.}
 \end{poster}%
 \end{document}
